@@ -1,6 +1,6 @@
 name: Daily Job
 
-on:on:
+on:
   workflow_dispatch:
     inputs:
       logLevel:
