@@ -2,3 +2,4 @@ pytz
 python-dotenv
 slack_sdk
 sqlalchemy
+psycopg2
