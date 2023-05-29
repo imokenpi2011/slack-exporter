@@ -42,4 +42,7 @@ jobs:
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
           SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
-        run: python main.py db
+        run: |
+          echo $DATABASE_URL
+          echo $SLACK_BOT_TOKEN
+          python main.py db
