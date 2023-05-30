@@ -329,13 +329,11 @@ class SlackBot:
                     process_message(reply, channel_id, channel_name, message_data)
 
     def create_messages_and_reactions(self, start_time, end_time):
-        start = JST_TIMEZONE.localize(start_time)
-        end = JST_TIMEZONE.localize(end_time)
-        start_timestamp = time.mktime(start.timetuple())
-        end_timestamp = time.mktime(end.timetuple())
-        print(start)
+        start_timestamp = JST_TIMEZONE.localize(start_time).timestamp()
+        end_timestamp = JST_TIMEZONE.localize(end_time).timestamp()
+        print(start_time)
         print(start_timestamp)
-        print(end)
+        print(start_time)
         print(end_timestamp)
 
         channels = self.get_channels()
