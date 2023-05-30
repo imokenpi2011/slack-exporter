@@ -121,6 +121,7 @@ def write_channel_data_for_database(message_data, channel_list):
     reactions = []
 
     for _, m in message_data.items():
+        print("ts:", m.ts)
         messages.append({
             "channel_id": m.channel_id,
             "ts": m.ts,
@@ -386,6 +387,8 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     start_time, end_time = calc_execution_time()
+    print("start_time:", start_time)
+    print("end_time:", end_time)
 
     bot = SlackBot()
     output_type = args.output_type
