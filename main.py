@@ -146,7 +146,7 @@ def write_channel_data_for_database(message_data, channel_list):
     db.insert_reaction_data(reactions)
 
 def process_message(message, channel_id, channel_name, message_data):
-    ts = datetime.datetime.fromtimestamp(float(message.get("ts", "")))
+    ts = datetime.datetime.fromtimestamp(float(message.get("ts", ""))).astimezone(JST_TIMEZONE)
     user = message.get("user", "")
     text = message.get("text", "")
     thread_ts = message.get("thread_ts", "")
@@ -154,7 +154,7 @@ def process_message(message, channel_id, channel_name, message_data):
     if thread_ts == "":
         thread_ts = None
     else:
-        thread_ts = datetime.datetime.fromtimestamp(float(thread_ts))
+        thread_ts = datetime.datetime.fromtimestamp(float(thread_ts)).astimezone(JST_TIMEZONE)
     reply_count = message.get("reply_count", 0)
 
     reactions = []
