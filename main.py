@@ -331,6 +331,10 @@ class SlackBot:
     def create_messages_and_reactions(self, start_time, end_time):
         start_timestamp = time.mktime(start_time.timetuple())
         end_timestamp = time.mktime(end_time.timetuple())
+        print(start_time)
+        print(start_timestamp)
+        print(end_time)
+        print(end_timestamp)
 
         channels = self.get_channels()
         message_data = {}
