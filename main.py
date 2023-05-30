@@ -86,7 +86,7 @@ class SlackChannels(Base):
         self.channel_name = channel_name
 
 def calc_execution_time():
-    now_datetime = JST_TIMEZONE.localize(datetime.datetime.now(pytz.utc))
+    now_datetime = datetime.datetime.now(pytz.utc).astimezone(JST_TIMEZONE)
     start_time = now_datetime.replace(hour=0, minute=0, second=0, microsecond=0) - datetime.timedelta(days=2)
     end_time = now_datetime.replace(hour=23, minute=59, second=59, microsecond=999999) - datetime.timedelta(days=1)
     return start_time, end_time
@@ -99,9 +99,7 @@ def write_csv(data, filename):
 
 
 def write_channel_data_for_csv(start_time, end_time, message_data):
-    start = JST_TIMEZONE.localize(start_time)
-    end = JST_TIMEZONE.localize(end_time)
-    timestr = start.strftime('%Y%m%d%H%M%S') + '-' + end.strftime('%Y%m%d%H%M%S')
+    timestr = start_time.strftime('%Y%m%d%H%M%S') + '-' + end_time.strftime('%Y%m%d%H%M%S')
     messages_csv = f"slack_messages_{timestr}.csv"
     reactions_csv = f"slack_reactions_{timestr}.csv"
 
