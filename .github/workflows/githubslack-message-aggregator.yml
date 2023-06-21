@@ -47,4 +47,4 @@ jobs:
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
           SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
-        run: python path/to/main.py db
+        run: python /home/runner/work/slack-exporter/main.py db
