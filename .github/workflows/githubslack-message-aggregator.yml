@@ -41,6 +41,7 @@ jobs:
           poetry --version
       - name: Poetry Install Dependencies
         run: |
+          cd /home/runner/work/slack-exporter/slack-exporter
           poetry install --no-interaction
 
       - name: Run Script
