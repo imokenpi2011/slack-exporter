@@ -1,6 +1,8 @@
 name: Daily Job
 
 on:
+  schedule:
+    - cron: '0 18 * * *' # UTC時間での設定なので実際は毎日JSTのAM3:00に実行される
   workflow_dispatch:
     inputs:
       logLevel:

@@ -390,8 +390,7 @@ if __name__ == "__main__":
     parser.add_argument("output_type", choices=["csv", "db"], help="Output type: 'csv' or 'db'")
     args = parser.parse_args()
 
-    _, end_time = calc_execution_time()
-    start_time = datetime.datetime(2000, 1, 1)
+    start_time, end_time = calc_execution_time()
     print("start_time:", start_time)
     print("end_time:", end_time)
 
